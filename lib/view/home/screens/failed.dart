@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail_tracking/core/styls.dart';
-import 'package:mail_tracking/cuibts/mails_cuibts/done_cuibt.dart';
 import 'package:mail_tracking/cuibts/mails_cuibts/failed_cuibt.dart';
 import 'package:mail_tracking/cuibts/mails_stats.dart';
 import 'package:mail_tracking/model/mails_molde.dart';
@@ -33,11 +32,11 @@ class Failed extends StatelessWidget {
           } else {
             return ListView.builder(
               shrinkWrap: true,
-              itemCount: BlocProvider.of<DoneCuibt>(context).data.length,
+              itemCount: BlocProvider.of<FailedCuibt>(context).data.length,
               itemBuilder: (BuildContext context, int index) {
                 return CustomMailsItem(
                   malisModel: MalisModel.fromJson(
-                      BlocProvider.of<DoneCuibt>(context).data[index]),
+                      BlocProvider.of<FailedCuibt>(context).data[index]),
                 );
               },
             );
