@@ -9,6 +9,6 @@ abstract class AppLinks {
   static const String done = '$baseUrl/mails/done.php';
   static const String waiting = '$baseUrl/mails/waiting.php';
   static const String failed = '$baseUrl/mails/failed.php';
-
+  static const String searchMail = '$baseUrl/mails/search_mail.php';
 
 }

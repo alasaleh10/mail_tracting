@@ -24,7 +24,10 @@ class Register extends StatelessWidget {
                   GoRouter.of(context).pushReplacement(AppRouts.login);
                 },
                 icon: const Icon(Icons.arrow_back)),
-            title: const Text('Mail tracting'),
+            title: const Text(
+              'Mail tracting',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           body: const RegisterBodyView(),
         ),

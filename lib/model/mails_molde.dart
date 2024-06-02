@@ -3,6 +3,7 @@ class MalisModel {
   String? mailsShipment;
   String? mailsSender;
   String? mailsRecpint;
+  String? mailsNo;
   int? mailsStatus;
   String? mailsImage;
   String? mailsDate;
@@ -13,6 +14,7 @@ class MalisModel {
       this.mailsShipment,
       this.mailsSender,
       this.mailsRecpint,
+      this.mailsNo,
       this.mailsStatus,
       this.mailsImage,
       this.mailsDate,
@@ -23,6 +25,7 @@ class MalisModel {
     mailsShipment = json['mails_shipment'];
     mailsSender = json['mails_sender'];
     mailsRecpint = json['mails_recpint'];
+    mailsNo=json['mails_no'];
     mailsStatus = json['mails_status'];
     mailsImage = json['mails_image'];
     mailsDate = json['mails_date'];

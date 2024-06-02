@@ -29,6 +29,7 @@ class CustomMailsItem extends StatelessWidget {
         ),
         Column(
           children: [
+            CustomRowDetils(titl1: 'Mail No.', titl2: malisModel.mailsNo!),
             CustomRowDetils(
                 titl1: 'Shipment', titl2: malisModel.mailsShipment!),
             const SizedBox(

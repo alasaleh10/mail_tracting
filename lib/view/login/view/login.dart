@@ -12,7 +12,10 @@ class Login extends StatelessWidget {
       create: (context) => LoginCubit(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Mail tracting'),
+          title: const Text(
+            'Mail tracting',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
         body: const LoginBodyView(),
       ),

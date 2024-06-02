@@ -12,8 +12,8 @@ class WaitingCuibt extends Cubit<MailsCuibtState> {
     try {
       emit(MailsStateLoading());
 
-      var response =
-          await crud.getdata('${AppLinks.waiting}?id=${sharedPref.getInt('id')}');
+      var response = await crud
+          .getdata('${AppLinks.waiting}?id=${sharedPref.getInt('id')}');
       if (response['status'] == 'success') {
         data.addAll(response['data']);
         emit(MailsStateSucsess());
@@ -24,5 +24,4 @@ class WaitingCuibt extends Cubit<MailsCuibtState> {
       emit(MailsStateFilure());
     }
   }
-
 }

@@ -23,6 +23,7 @@ class MailTracking extends StatelessWidget {
         scaffoldBackgroundColor: kPrimColor,
         appBarTheme: const AppBarTheme(
           elevation: 8,
+          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: kPrimColor,
         ),
       ),

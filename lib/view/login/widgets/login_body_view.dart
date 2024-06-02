@@ -21,64 +21,66 @@ class LoginBodyView extends StatelessWidget {
       key: BlocProvider.of<LoginCubit>(context).key,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                'Login',
-                style: Styles.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  'Login',
+                  style: Styles.bold,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomTextFormFiled(
-              controller: BlocProvider.of<LoginCubit>(context).email,
-              validate: (value) {
-                return validation('email', value!, 3, 25);
-              },
-              hintText: 'Email',
-              prefxIcon: Icons.mail,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomTextFormFiled(
-              controller: BlocProvider.of<LoginCubit>(context).password,
-              validate: (value) {
-                return validation('password', value, 8, 15);
-              },
-              hintText: 'Password',
-              prefxIcon: Icons.lock,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            BlocConsumer<LoginCubit, LoginState>(
-              listener: (context, state) {
-                if (state is LoginISucsess) {
-                  GoRouter.of(context).pushReplacement(AppRouts.homeScreen);
-                } else if (state is LoginIErrorAccount) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      customSnackBar(title: 'Worng Email Or password'));
-                }
-              },
-              builder: (context, state) {
-                if (state is LoginLoading) {
-                  return const CustomLoading();
-                } else {
-                  return CustomElevtedButton(
-                      text: 'Login',
-                      onPressed: () {
-                        BlocProvider.of<LoginCubit>(context).login();
-                      });
-                }
-              },
-            ),
-            const CustomRowLogin()
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              CustomTextFormFiled(
+                controller: BlocProvider.of<LoginCubit>(context).email,
+                validate: (value) {
+                  return validation('email', value!, 3, 25);
+                },
+                hintText: 'Email',
+                prefxIcon: Icons.mail,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomTextFormFiled(
+                controller: BlocProvider.of<LoginCubit>(context).password,
+                validate: (value) {
+                  return validation('password', value, 8, 15);
+                },
+                hintText: 'Password',
+                prefxIcon: Icons.lock,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              BlocConsumer<LoginCubit, LoginState>(
+                listener: (context, state) {
+                  if (state is LoginISucsess) {
+                    GoRouter.of(context).pushReplacement(AppRouts.homeScreen);
+                  } else if (state is LoginIErrorAccount) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        customSnackBar(title: 'Worng Email Or password'));
+                  }
+                },
+                builder: (context, state) {
+                  if (state is LoginLoading) {
+                    return const CustomLoading();
+                  } else {
+                    return CustomElevtedButton(
+                        text: 'Login',
+                        onPressed: () {
+                          BlocProvider.of<LoginCubit>(context).login();
+                        });
+                  }
+                },
+              ),
+              const CustomRowLogin()
+            ],
+          ),
         ),
       ),
     );

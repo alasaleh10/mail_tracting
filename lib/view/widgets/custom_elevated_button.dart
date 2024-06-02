@@ -13,8 +13,8 @@ class CustomElevtedButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.height * .18,
-                vertical: 18),
+                horizontal: MediaQuery.of(context).size.width * .2,
+                vertical: 10),
             backgroundColor: Colors.white),
         child: Text(
           text,
